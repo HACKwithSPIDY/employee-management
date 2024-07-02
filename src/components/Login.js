@@ -9,15 +9,15 @@ const Login = ({ setUser }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (email === 'admin' && password === 'admin') {
+    if (email === 'admin' && password === 'admin') { // checking if admin login or not
       navigate('/admin');
-    } else {
+    } else { // else it will check that particular email in the api
       try {
         const response = await axios.get('https://gorest.co.in/public/v2/users?access-token=33b6fb110d633578b736fd78b6dca76279a2822251d92da5000afd35cc5b11e3&email='+email);
         const user = response.data.find(user => user.email === email);
         if (user) {
-          setUser(user);
-          navigate('/profile');
+          setUser(user); // to display the user data into user profile
+          navigate('/profile'); // if found the nit will redirect to user profile page
         } else {
           alert('User not found');
         }

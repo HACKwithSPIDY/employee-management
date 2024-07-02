@@ -8,7 +8,7 @@ const AdminPanel = () => {
 
   const handleCreateEmployee = async (e) => {
     e.preventDefault();
-    try {
+    try { // it will send the data to the api
       await axios.post(
         'https://gorest.co.in/public/v2/users?access-token=33b6fb110d633578b736fd78b6dca76279a2822251d92da5000afd35cc5b11e3',
         {
@@ -18,7 +18,7 @@ const AdminPanel = () => {
           status: 'active',
         }
       );
-      alert('Employee created successfully');
+      alert('Employee created successfully'); // if data added successfully
     } catch (error) {
       console.error(error);
       alert('Error creating employee');
